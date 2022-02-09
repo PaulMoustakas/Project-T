@@ -10,6 +10,7 @@ import ConnectBankID from "../components/ConnectBankID";
 
 type Props = {
   handleOpenModal: any;
+  handleLogin: any;
 };
 
 function Banner ({ handleOpenModal }: Props) {
@@ -66,7 +67,7 @@ function Banner ({ handleOpenModal }: Props) {
     >
 
     <Box>
-          <ConnectBankID handleOpenModal />
+          <ConnectBankID  />
     </Box>
 
     </Container>
