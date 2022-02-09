@@ -2,10 +2,18 @@ import { Box, Image, Button, Container, Heading } from '@chakra-ui/react';
 import brandLogo from "../assets/mau.png";
 import illustrator from "../assets/Illustrator.png";
 import ConnectButton from "../components/ConnectButton";
+import ConnectBankID from "../components/ConnectBankID";
 
 
 
-function Banner () {
+
+
+type Props = {
+  handleOpenModal: any;
+};
+
+function Banner ({ handleOpenModal }: Props) {
+
   return (
     <>
    <header>
@@ -18,9 +26,8 @@ function Banner () {
     >
       <Image boxSize="90px" src={brandLogo} alt="School"/>
       <Box>
-            <ConnectButton handleOpenModal />
+        <ConnectButton handleOpenModal={handleOpenModal}/>
       </Box>
-
     </Box>
   </header>
 
@@ -46,6 +53,22 @@ function Banner () {
           <Image w="100%" src={illustrator}  alt="illustrator" />
         </Box>
       </Box>
+    </Container>
+
+{/* Bank ID */}
+    <Container maxWidth="40vw" height="40px"
+  /*  display="flex" */
+  /*  alignItems="center" */
+    background="gray.700"
+    borderRadius="xl"
+  /*  py="0" */
+  /*  alignContent="center" */
+    >
+
+    <Box>
+          <ConnectBankID handleOpenModal />
+    </Box>
+
     </Container>
   </Box>
   </>

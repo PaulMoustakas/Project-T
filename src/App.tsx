@@ -11,11 +11,8 @@ function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <ChakraProvider theme={theme}>
-
-        <Banner/>
-
-        <AccountModal isOpen={isOpen} onClose={onClose} />
-
+    <Banner handleOpenModal={onOpen}/>
+    <AccountModal isOpen={isOpen} onClose={onClose} />
 
     </ChakraProvider>
   );
