@@ -44,11 +44,18 @@ export default function Example() {
 
 
       async function identifyUser() {
+
+        var data = JSON.stringify({
+          "endUserIp": "80.217.149.82",
+          "personalNumber": "199706127751"
+        });
+        
         return axios({
           method: "post",
-          url: "https://rekoapi.herokuapp.com/api/v1/login",
+          url: "http://localhost:8080/bankID/authenticate",
+          data: data,
           headers: {
-            "content-type": "application/x-www-form-urlencoded;charset=utf-8",
+            "Content-Type": "application/json"
           },
         }).then(
           (response) => {
