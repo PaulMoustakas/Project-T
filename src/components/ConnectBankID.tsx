@@ -66,6 +66,7 @@ function handleConnectBankID () {
 
 
 
+<<<<<<< HEAD
       async function identifyUser(personalNumber:any) {
 
         var data = JSON.stringify({
@@ -73,6 +74,15 @@ function handleConnectBankID () {
         });
         console.log (data);
 
+=======
+      async function identifyUser() {
+
+        var data = JSON.stringify({
+          "endUserIp": "80.217.149.82",
+          "personalNumber": "199706127751"
+        });
+        
+>>>>>>> 8577a46822752e23d0bc3b763c567f1aabd7d111
         return axios({
           method: "post",
           url: "http://localhost:8080/bankID/authenticate",
