@@ -1,4 +1,4 @@
-import { Box, Image, Button, Container, Heading } from '@chakra-ui/react';
+import { Box, Image, Button, Container, Heading, Text } from '@chakra-ui/react';
 import brandLogo from "../assets/mau.png";
 import illustrator from "../assets/Illustrator.png";
 import ConnectButton from "../components/ConnectButton";
@@ -57,18 +57,26 @@ function Banner ({ handleOpenModal }: Props) {
     </Container>
 
 {/* Bank ID */}
-    <Container maxWidth="40vw" height="40px"
-  /*  display="flex" */
-  /*  alignItems="center" */
+
+
+    <Container
+    maxWidth="container.xl"
+    height="80px"
+
+    flexDirection="row"
+    d="flex"
     background="gray.700"
     borderRadius="xl"
-  /*  py="0" */
-  /*  alignContent="center" */
     >
-
-    <Box>
+    <Box
+    flexDirection="row"
+    d="flex"
+    alignItems="center"
+    >
           <ConnectBankID  />
     </Box>
+
+
 
     </Container>
   </Box>
