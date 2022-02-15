@@ -4,30 +4,50 @@ import React, { useState, useEffect } from 'react';
 import { Box, Image, Button, ButtonGroup, Container, Heading, Text, Input } from '@chakra-ui/react';
 import axios from "axios";
 import brandLogo from "../assets/BankID_logo_white.png"
+import PropTypes from 'prop-types';
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import { VisuallyHidden, VisuallyHiddenInput } from '@chakra-ui/react'
 
 export default function Example() {
 
-  const [value,  setValue] = React.useState('');
-  const handleChange = (event:any) => setValue (event.target.value);
+const [value,  setValue] = React.useState('');
+const handleChange = (event:any) => setValue (event.target.value);
+
+
+const [loading, setLoading] = useState(false);
+const [complete, setComplete] = useState(0);
+const [color, setColor] = useState("red.300");
+
+
+
 
 
 
 function handleConnectBankID () {
   identifyUser(value);
+
+  setTimeout(() => {
+
+  }, 2000);
+  setValue('');
+  setLoading(false);
 }
 
-  return (
-    <Box
-      boxSize="70px"
 
+  return   (
+    <Box
+      flexDirection="row"
+      position="fixed"
+
+      d="flex"
       maxWidth="100vh"
       p={4}
       w="100%"
-      display="flex"
-      alignItems=" baseline"
       >
       <Button
-      onClick={handleConnectBankID}
+
+      onClick={ handleConnectBankID }
+      isLoading={loading ? loading : false}
       variant="outline"
       bg="blue.800"
       border="1px solid transparent"
@@ -61,12 +81,19 @@ function handleConnectBankID () {
         placeholder="YYYYMMDD-XXXX"
         color="blue.300"
         />
+
+
+      <CircularProgress
+      size="40px"
+      value={complete}
+      color={color}
+      thickness='12px' />
     </Box>
   );
 
 
       async function identifyUser(personalNumber:any) {
-
+        setLoading(true);
         var data = JSON.stringify({
           "personalNumber": personalNumber
         });
@@ -81,17 +108,43 @@ function handleConnectBankID () {
           },
         }).then(
           (response) => {
-            if (response.data.access_token != null) {
+            if (response.data.orderRef != null) {
+              setLoading(false);
+              setValue('');
+              setComplete(100);
+              setColor('green.300')
               console.log(response.data);
-              return response.data.access_token;
+              return response.data.autoStartToken;
             } else {
+              setColor('orange.300')
               console.log("nåt blev tokigt");
             }
           },
           (error) => {
+            setColor('red.300')
             console.log(error);
           }
         );
       }
+
+
+
+      const bankIDfuntion = async (value:any) => {
+        try {
+        const data = await axios
+        .post('http://localhost:8080/bankID/authenticate')
+        .then(res => {
+          console.log(res)
+          console.log(value)
+        });
+
+      setLoading(true);
+      } catch (e) {
+          console.log(e)
+        }
+      }
+
+
+
 
 }

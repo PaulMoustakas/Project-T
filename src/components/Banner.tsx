@@ -3,8 +3,7 @@ import brandLogo from "../assets/mau.png";
 import illustrator from "../assets/Illustrator.png";
 import ConnectButton from "../components/ConnectButton";
 import ConnectBankID from "../components/ConnectBankID";
-
-
+import NFTButton from "../components/NFTButton";
 
 
 
@@ -68,15 +67,15 @@ function Banner ({ handleOpenModal }: Props) {
     background="gray.700"
     borderRadius="xl"
     >
+
     <Box
     flexDirection="row"
     d="flex"
-    alignItems="center"
     >
-          <ConnectBankID  />
+
+    <ConnectBankID />
+
     </Box>
-
-
 
     </Container>
   </Box>
