@@ -19,9 +19,11 @@ export default function Mint() {
   return  (
 
     <Container
-      background="blue.700"
+      background="green.700"
       borderRadius="xl"
-      d="flex" alignItems="center" py="10" flexDirection="row"
+      d="flex"
+      alignItems="center"
+      py="10" flexDirection="row"
       height="75px"
       maxWidth="75vh"
     >
@@ -59,9 +61,17 @@ export default function Mint() {
             fontWeight="bold"
             mr="2"
           >
-              Mint NFT
+              Review Address
           </Text>
         </Button>
+
+    <Box boxSize="8"> </Box>
+
+        <Input
+          maxWidth="460px"
+          placeholder="0x0000000000000000000000000000000000000000"
+          color="blue.300"
+        />
       </Box>
     </Container>
   )

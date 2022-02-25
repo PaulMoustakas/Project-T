@@ -1,9 +1,11 @@
-import { Box, Image, Button, Container, Heading, Text } from '@chakra-ui/react';
+import { Box, Image, Button, ButtonGroup, Container, Heading, Text } from '@chakra-ui/react';
 import brandLogo from "../assets/mau.png";
 import illustrator from "../assets/Illustrator.png";
 import ConnectButton from "../components/ConnectButton";
 import ConnectBankID from "../components/ConnectBankID";
 import NFTButton from "../components/NFTButton";
+import Review from "../components/Review";
+import React, { useState } from 'react';
 
 
 
@@ -12,7 +14,11 @@ type Props = {
   handleLogin: any;
 };
 
+
+
 function Banner ({ handleOpenModal }: Props) {
+const [ mintAuth, setMintAuth] = useState(null);
+
 
   return (
     <>
@@ -41,11 +47,25 @@ function Banner ({ handleOpenModal }: Props) {
             <Box> Project T </Box>
           </Heading>
           <Box mt="6" >
-          Project T is a project created by two students from Malmö University
-          doing their Bechelor Thesis in Computer Science. The Project aims to issue
-          government backed NFT, as a token to prove you are not a robot. Why?
-          The ideea is that the token only represents a person, and no information is ever shared
-          on the Blockchain.
+
+          <Text>
+
+          <Text>    Project T is a part of a bachelor thesis in Computer Science, developed at Malmö University. <tr> </tr>
+                    The Project aims to build a Blockchain-based reputation system, resistance against sybil attacks.
+                    We issue digital identity certificates to entities authenticated by BankID, through NFTs.</Text>
+          <br />
+
+
+          <Text>    A Sybil attack is a type of attack on a computer network service in which an attacker subverts the service's reputation system by creating
+                    a large number of pseudonymous identities and uses them to gain a disproportionately large influence. </Text>
+          <br />
+
+          We let Swedish e-ID service Bank-ID serve as a trusted centralized entity, vouching for 1:1 relationship between entity and identity.
+          No personal information is stored on-chain. The NFTs are to serve as basis for the reputation system and our requirement for participation.
+
+
+          </Text>
+
           </Box>
           <Box d="flex" alignItems="center"> </Box>
         </Box>
@@ -55,30 +75,18 @@ function Banner ({ handleOpenModal }: Props) {
       </Box>
     </Container>
 
-{/* Bank ID */}
 
 
-    <Container
-    maxWidth="container.xl"
-    height="80px"
+      </Box>
 
-    flexDirection="row"
-    d="flex"
-    background="gray.700"
-    borderRadius="xl"
-    >
+    {/* Bank ID */}
+    <ConnectBankID/>
+    {/* NFT Mint */}
+    <NFTButton/>
+    {/* NFT Mint */}
+    <Review/>
 
-    <Box
-    flexDirection="row"
-    d="flex"
-    >
 
-    <ConnectBankID />
-
-    </Box>
-
-    </Container>
-  </Box>
   </>
 );
 }
