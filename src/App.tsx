@@ -16,8 +16,6 @@ function App() {
 
 
 
-
-
   return (
     <ChakraProvider theme={theme}>
       <Banner handleOpenModal={onOpen} handleLogin/>

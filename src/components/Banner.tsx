@@ -19,6 +19,11 @@ type Props = {
 function Banner ({ handleOpenModal }: Props) {
 const [ mintAuth, setMintAuth] = useState(null);
 
+const [hash, setHash] = useState('');
+const childToParent = (childdata:any) => {
+  setHash(childdata);
+}
+
 
   return (
     <>
@@ -80,9 +85,9 @@ const [ mintAuth, setMintAuth] = useState(null);
       </Box>
 
     {/* Bank ID */}
-    <ConnectBankID/>
+    <ConnectBankID childToParent={childToParent}/>
     {/* NFT Mint */}
-    <NFTButton/>
+    <NFTButton hashValue={hash} />
     {/* NFT Mint */}
     <Review/>
 

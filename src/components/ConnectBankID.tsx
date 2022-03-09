@@ -10,15 +10,19 @@ import {ProjectContext} from "../Helper/Context";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 
 
+type Props = {
+  childToParent:any
+};
 
 
-const ConnectBank = () => {
+const ConnectBank = ({childToParent}: Props) => {
 const { activateBrowserWallet, account } = useEthers();
 const [value, setValue] = React.useState('');
 const handleChange = (event:any) => setValue (event.target.value);
 const [loading, setLoading] = useState(false);
 const [complete, setComplete] = useState(0);
 const [color, setColor] = useState("red.300");
+
 
 
 
@@ -164,6 +168,9 @@ function handleConnectBankID () {
     setComplete(100);
     setColor('green.300')
     console.log(response.data);
+    childToParent(response);
+
+
   })
   .catch(function (error:any) {
     console.log(error);

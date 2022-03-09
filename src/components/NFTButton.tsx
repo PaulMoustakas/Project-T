@@ -3,16 +3,19 @@ import axios from "axios";
 import ConnectButton from "../components/ConnectButton";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { useMint, useContractMint } from "../hooks";
+import React, { useState } from 'react';
 
 
-export default function Mint() {
+
+export default function Mint( {hashValue}: any) {
   const { activateBrowserWallet, account } = useEthers();
   const response = useMint();
   const { state, send: mintNFT } = useContractMint("mintNFT");
 
 
   function handleMint() {
-    mintNFT(account, "hejsan");
+  //  {hashValue ? ( hashValue.data) : null}
+    mintNFT(account, "HAALLO");
   }
 
 
