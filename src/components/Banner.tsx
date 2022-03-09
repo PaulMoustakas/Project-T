@@ -88,8 +88,9 @@ const childToParent = (childdata:any) => {
     <ConnectBankID childToParent={childToParent}/>
     {/* NFT Mint */}
     <NFTButton hashValue={hash} />
-    {/* NFT Mint */}
+    {/* Review */}
     <Review/>
+
 
 
   </>
