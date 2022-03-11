@@ -1,11 +1,9 @@
-
-
-import React, { useState, useEffect } from 'react';
-import { Box, Image, Button, ButtonGroup, Container, Heading, Text, Input } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Image, Button, Container, Text, Input } from '@chakra-ui/react';
 import axios from "axios";
 import brandLogo from "../assets/BankID_logo_white.png"
 import PropTypes from 'prop-types';
-import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import { CircularProgress } from '@chakra-ui/react'
 import {ProjectContext} from "../Helper/Context";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 

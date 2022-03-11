@@ -1,4 +1,4 @@
-import { Box, Image, Button, ButtonGroup, Container, Heading, Text } from '@chakra-ui/react';
+import { Box, Image, Container, Heading, Text } from '@chakra-ui/react';
 import brandLogo from "../assets/mau.png";
 import illustrator from "../assets/Illustrator.png";
 import ConnectButton from "../components/ConnectButton";
@@ -17,8 +17,6 @@ type Props = {
 
 
 function Banner ({ handleOpenModal }: Props) {
-const [ mintAuth, setMintAuth] = useState(null);
-
 const [hash, setHash] = useState('');
 const childToParent = (childdata:any) => {
   setHash(childdata);
