@@ -59,7 +59,7 @@ export default function WithSubnavigation ({ handleOpenModal }: Props){
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Image boxSize="90px" src={brandLogo} alt="School"/>
+        <Image boxSize="120px" src={brandLogo} alt="School"/>
 
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
         

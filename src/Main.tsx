@@ -4,7 +4,6 @@ import ReviewDatabase from './components/ReviewDatabase';
 
 const Main = () => {
 
-    
 
 return (         
     <Routes>
