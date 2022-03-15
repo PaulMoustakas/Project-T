@@ -1,78 +1,5 @@
 [
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "reviewID",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_reviewedAdress",
-				"type": "address"
-			},
-			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "reviewID",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "reviewScore",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amountOfUpvotes",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amountOfDownvotes",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "reviewText",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "reviewerAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "recipientAddress",
-						"type": "address"
-					}
-				],
-				"internalType": "struct TokenizedBankID.Review",
-				"name": "review",
-				"type": "tuple"
-			}
-		],
-		"name": "addReview",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_addressToWhitelist",
-				"type": "address"
-			}
-		],
-		"name": "addUser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
@@ -128,140 +55,6 @@
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "recipient",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "tokenURI",
-				"type": "string"
-			}
-		],
-		"name": "mintNFT",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "score",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "reviewText",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "recipientAddress",
-				"type": "address"
-			}
-		],
-		"name": "reviewUser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "safeTransferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bytes",
-				"name": "_data",
-				"type": "bytes"
-			}
-		],
-		"name": "safeTransferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "operator",
-				"type": "address"
-			},
-			{
-				"internalType": "bool",
-				"name": "approved",
-				"type": "bool"
-			}
-		],
-		"name": "setApprovalForAll",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -290,9 +83,17 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "from",
+				"name": "_addressToWhitelist",
 				"type": "address"
-			},
+			}
+		],
+		"name": "addUser",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
 			{
 				"internalType": "address",
 				"name": "to",
@@ -304,30 +105,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "transferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "reviewIndex",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "reviewerAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "vote",
-				"type": "uint256"
-			}
-		],
-		"name": "voteOnReview",
+		"name": "approve",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -405,6 +183,30 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "tokenURI",
+				"type": "string"
+			}
+		],
+		"name": "mintNFT",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -568,6 +370,98 @@
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "score",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "reviewText",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "recipientAddress",
+				"type": "address"
+			}
+		],
+		"name": "reviewUser",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_data",
+				"type": "bytes"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "bytes4",
 				"name": "interfaceId",
 				"type": "bytes4"
@@ -620,6 +514,29 @@
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "_whitelistedAddress",
 				"type": "address"
 			}
@@ -633,6 +550,29 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "reviewIndex",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "reviewerAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "vote",
+				"type": "uint256"
+			}
+		],
+		"name": "voteOnReview",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

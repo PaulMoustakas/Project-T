@@ -14,7 +14,6 @@ export default function Mint( {hashValue}: any) {
 
 
   function handleMint() {
-  //  {hashValue ? ( hashValue.data) : null}
     mintNFT(account, "HAALLO");
   }
 
@@ -27,6 +26,8 @@ export default function Mint( {hashValue}: any) {
       d="flex" alignItems="center" py="10" flexDirection="row"
       height="75px"
       maxWidth="75vh"
+      marginTop="5"
+      marginLeft={330}
     >
 
       <Box
