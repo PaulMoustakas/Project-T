@@ -1,9 +1,6 @@
 import { Box, Image, Button, Container, Text, Input } from '@chakra-ui/react';
-import axios from "axios";
-import ConnectButton from "../components/ConnectButton";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { useMint, useContractMint } from "../hooks";
-import React, { useState } from 'react';
 
 
 

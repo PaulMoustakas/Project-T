@@ -18,7 +18,6 @@ import {
 
 
 export default function Review() {
-  const { activateBrowserWallet, account } = useEthers();
  
   const [allValues, setAllValues] = useState ({
     text: "",
@@ -34,7 +33,6 @@ export default function Review() {
 
   const [ratingValue, setRatingValue] = React.useState ('');
 
-  const handleChange = (event:any) => setRatingValue (event.target.value);
 
   const reviewCall = useReview(Number(ratingValue), allValues.text,allValues.addressToReview)
 

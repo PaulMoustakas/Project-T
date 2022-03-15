@@ -1,12 +1,10 @@
 import { Box, Image, Container, Heading, Text } from '@chakra-ui/react';
 import illustrator from "../assets/Illustrator.png";
-import ConnectButton from "../components/ConnectButton";
 import ConnectBankID from "../components/ConnectBankID";
 import NFTButton from "../components/NFTButton";
 import Review from "../components/Review";
 import AppNav from './AppNav';
 import { useState } from 'react';
-import App from '../App';
 
 
 
