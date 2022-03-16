@@ -47,8 +47,7 @@ const childToParent = (childdata:any) => {
 
           <Text>
 
-
-          <Text>    Project T is a part of a bachelor thesis in Computer Science, developed at Malmö University. <tr> </tr>
+          <Text>    Project T is a part of a bachelor thesis in Computer Science, developed at Malmö University. 
                     The Project aims to build a Blockchain-based reputation system, resistance against sybil attacks.
                     We issue digital identity certificates to entities authenticated by BankID, through NFTs.</Text>
           <br />
@@ -59,7 +58,7 @@ const childToParent = (childdata:any) => {
           <br />
 
           We let Swedish e-ID service Bank-ID serve as a trusted centralized entity, vouching for 1:1 relationship between entity and identity.
-          No personal information is stored on-chain. The NFTs are to serve as basis for the reputation system and our requirement for participation.
+          No personal information is stored on -chain. The NFTs are to serve as basis for the reputation system and our requirement for participation.
 
 
           </Text>

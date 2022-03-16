@@ -1,12 +1,9 @@
-import { BigNumber, ethers } from "ethers";
+import { ethers } from "ethers";
 
 import { Contract } from "@ethersproject/contracts";
 import { useContractCall, useContractFunction,useCall} from "@usedapp/core";
-import countContractAbi from "../abi/countContractAbi.json";
 import nftContractAbi from "../abi/nftContractAbi.json";
-import { nftContractAddress, countContractAddress } from "../contracts";
-import { useEthers, useEtherBalance } from "@usedapp/core";
-
+import { nftContractAddress } from "../contracts";
 
 
 const nftContractInterface = new ethers.utils.Interface(nftContractAbi);
@@ -51,6 +48,28 @@ export function useReview (score: number, reviewText : string | null | undefined
 }
 
 
+export function useFetchReviews (address : string | null | undefined) {
+ 
+
+
+  const {value, error} =
+  
+  useCall({
+    contract: mintContract,
+    method: "returnPerson",
+    args: [address],
+  }) ?? {};
+
+  if (error) {
+    console.error(error.message)
+  }
+   
+  console.log(value)
+
+  return value;
+
+  
+}
 
 
 {/** Generic */}
@@ -62,4 +81,9 @@ export function useContractMint (methodName: string) {
 export function useReviewFunction () {
   const { state, send } = useContractFunction(mintContract, "reviewUser", {});
   return { state, send };
+}
+
+export function useGetReview () {
+  const {state,send} = useContractFunction(mintContract,"returnPerson",{});
+  return {state,send};
 }
