@@ -31,7 +31,7 @@ export function ReviewDatabase()  {
 
     const reviewCall = useFetchReviews(address)
   
-    const {state,send: getReviews } = useGetReview();
+    const {send: getReviews } = useGetReview();
     
 
    const handleChange = (e:any) => {

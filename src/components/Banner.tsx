@@ -48,7 +48,7 @@ const childToParent = (childdata:any) => {
           <Text>
 
           <Text>    Project T is a part of a bachelor thesis in Computer Science, developed at Malmö University. 
-                    The Project aims to build a Blockchain-based reputation system, resistance against sybil attacks.
+                    The Project aims to build a Blockchain-based reputation system, resistant against sybil attacks.
                     We issue digital identity certificates to entities authenticated by BankID, through NFTs.</Text>
           <br />
 
