@@ -54,7 +54,7 @@ export function useFetchReviews (address : string | null | undefined) {
   
   useCall({
     contract: mintContract,
-    method: "returnAllReviews",
+    method: "retunAllReviews",
     args: [address],
   }) ?? {};
 
@@ -84,8 +84,6 @@ export function useFetchUser (address : string | null | undefined) {
     console.error(error.message)
   }
    
-  console.log(value)
-
   return value;
 
   
@@ -109,6 +107,6 @@ export function useGetUser () {
 }
 
 export function useGetReviews () {
-  const {state,send} = useContractFunction (mintContract, "returnAllReviews",{});
+  const {state,send} = useContractFunction (mintContract, "retunAllReviews",{});
   return {state,send};
 }
