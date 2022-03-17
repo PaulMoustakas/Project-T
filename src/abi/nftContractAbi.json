@@ -82,6 +82,71 @@
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "reviewID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "reviewID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "reviewScore",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfUpvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfDownvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "reviewText",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "reviewerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipientAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct TokenizedBankID.Review",
+				"name": "review",
+				"type": "tuple"
+			}
+		],
+		"name": "addReview",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "_addressToWhitelist",
 				"type": "address"
@@ -124,6 +189,40 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "lookup",
+				"type": "address"
+			},
+			{
+				"internalType": "int256",
+				"name": "DT",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "RSpre",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "r",
+				"type": "int256"
+			}
+		],
+		"name": "calculateRS",
+		"outputs": [
+			{
+				"internalType": "int256",
+				"name": "",
+				"type": "int256"
 			}
 		],
 		"stateMutability": "view",
@@ -252,19 +351,90 @@
 		"name": "personMapping",
 		"outputs": [
 			{
-				"internalType": "address",
-				"name": "personAdress",
-				"type": "address"
-			},
-			{
 				"internalType": "string",
 				"name": "hashedGovID",
 				"type": "string"
 			},
 			{
-				"internalType": "uint256",
+				"internalType": "int256",
 				"name": "trustFactor",
+				"type": "int256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "latestReviewID",
 				"type": "uint256"
+			},
+			{
+				"internalType": "int256",
+				"name": "TotalScore",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "amountOfReviews",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "lookup",
+				"type": "address"
+			}
+		],
+		"name": "retunAllReviews",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "reviewID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "reviewScore",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfUpvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfDownvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "reviewText",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "reviewerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipientAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct TokenizedBankID.Review[]",
+				"name": "",
+				"type": "tuple[]"
 			}
 		],
 		"stateMutability": "view",
@@ -283,19 +453,29 @@
 			{
 				"components": [
 					{
-						"internalType": "address",
-						"name": "personAdress",
-						"type": "address"
-					},
-					{
 						"internalType": "string",
 						"name": "hashedGovID",
 						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "int256",
 						"name": "trustFactor",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "latestReviewID",
 						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "TotalScore",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfReviews",
+						"type": "int256"
 					}
 				],
 				"internalType": "struct TokenizedBankID.Person",
@@ -329,19 +509,24 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "int256",
 						"name": "reviewScore",
-						"type": "uint256"
+						"type": "int256"
 					},
 					{
 						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
 						"name": "amountOfUpvotes",
-						"type": "uint256"
+						"type": "int256"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "int256",
 						"name": "amountOfDownvotes",
-						"type": "uint256"
+						"type": "int256"
 					},
 					{
 						"internalType": "string",
@@ -370,9 +555,9 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "int256",
 				"name": "score",
-				"type": "uint256"
+				"type": "int256"
 			},
 			{
 				"internalType": "string",
@@ -381,7 +566,7 @@
 			},
 			{
 				"internalType": "address",
-				"name": "recipientAddress",
+				"name": "recipient",
 				"type": "address"
 			}
 		],
@@ -561,7 +746,7 @@
 			},
 			{
 				"internalType": "address",
-				"name": "reviewerAddress",
+				"name": "recipient",
 				"type": "address"
 			},
 			{

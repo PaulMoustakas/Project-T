@@ -5,6 +5,7 @@ import "@fontsource/inter";
 import AccountModal from "./AccountModal";
 import { useState } from "react";
 import { useFetchReviews, useGetReview } from "../hooks";
+import { StarIcon } from "@chakra-ui/icons";
 
 
 function Feature( {title} : {title:any},  {desc} : {desc:any}, {rest} : {rest:any}) {
@@ -92,6 +93,20 @@ export function ReviewDatabase()  {
           <Heading fontSize="xl">{allValues.address}</Heading>
           <Heading fontSize="xl">{allValues.personalNumber}</Heading>
           <Heading fontSize="xl">{allValues.trustScore }</Heading>
+          <Box display='flex' alignItems='center'>
+          {Array(5)
+            .fill('')
+            .map((_, i) => (
+              <StarIcon
+                key={i}
+                color={i < rating.rating ? 'blue.700' : 'gray.300'}
+                />
+              ))}
+              <Box as='span' ml='2' color='gray.700' fontSize='lg'>
+              {2} reviews
+              </Box>
+        </Box>
+      </Box>
 
           <Stack spacing={8}  ></Stack>
 

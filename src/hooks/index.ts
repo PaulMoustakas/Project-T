@@ -49,6 +49,26 @@ export function useReview (score: number, reviewText : string | null | undefined
 
 
 export function useFetchReviews (address : string | null | undefined) {
+
+  const {value, error} =
+  
+  useCall({
+    contract: mintContract,
+    method: "returnAllReviews",
+    args: [address],
+  }) ?? {};
+
+  if (error) {
+    console.error(error.message)
+  }
+
+  return value;
+
+
+}
+
+
+export function useFetchUser (address : string | null | undefined) {
  
 
 
@@ -83,7 +103,12 @@ export function useReviewFunction () {
   return { state, send };
 }
 
-export function useGetReview () {
+export function useGetUser () {
   const {state,send} = useContractFunction(mintContract,"returnPerson",{});
+  return {state,send};
+}
+
+export function useGetReviews () {
+  const {state,send} = useContractFunction (mintContract, "returnAllReviews",{});
   return {state,send};
 }
