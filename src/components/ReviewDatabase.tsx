@@ -4,7 +4,7 @@ import AppNav from "./AppNav";
 import "@fontsource/inter";
 import AccountModal from "./AccountModal";
 import { useState } from "react";
-import { useFetchReviews, useGetReview } from "../hooks";
+import { useFetchReviews, useFetchUser, useGetReviews, useGetUser } from "../hooks";
 import { StarIcon } from "@chakra-ui/icons";
 
 
@@ -28,11 +28,14 @@ export function ReviewDatabase()  {
       personalNumber: "",
       address: "",
       trustScore: "",
+      totalScore: 0,
+      amountOfReviews: 0,
+      ratingAverage : 0,
     });
 
-    const reviewCall = useFetchReviews(address)
+    const reviewCall = useFetchUser(address)
   
-    const {send: getReviews } = useGetReview();
+    const {send: getReviews } = useGetUser();
     
 
    const handleChange = (e:any) => {
@@ -43,7 +46,7 @@ export function ReviewDatabase()  {
     const handleSubmit = (e: any) => {
 
       e.preventDefault(); 
-      console.log("SUBMIT ATTEMPTED" + address)
+      console.log("SUBMIT ATTEMPTED " + address)
       getReviews(address)
       
       let personArray = reviewCall;
@@ -51,9 +54,14 @@ export function ReviewDatabase()  {
 
       if (reviewCall != undefined) {
      
-      allValues.address = "Adress: " + personArray?.at(0).at(0);
-      allValues.personalNumber = "HashedGovID: " + personArray?.at(0).at(1);
-      allValues.trustScore = "TrustScore: " + personArray?.at(0).at(2);
+      allValues.address = "Adress: " + address;
+      allValues.personalNumber = "HashedGovID: " + personArray?.at(0).at(0);
+      allValues.trustScore = "TrustScore: " + personArray?.at(0).at(1);
+      allValues.totalScore = personArray?.at(0).at(3);
+      allValues.amountOfReviews = personArray?.at(0).at(4);
+      allValues.ratingAverage = allValues.totalScore / allValues.amountOfReviews;
+
+      console.log(allValues.ratingAverage + " Rating average")
 
       setAllValues(allValues)
 
@@ -63,6 +71,7 @@ export function ReviewDatabase()  {
         allValues.address = ""
         allValues.personalNumber = ""
         allValues.trustScore = ""
+        allValues.ratingAverage = 0;
       }
     }
 
@@ -99,18 +108,18 @@ export function ReviewDatabase()  {
             .map((_, i) => (
               <StarIcon
                 key={i}
-                color={i < rating.rating ? 'blue.700' : 'gray.300'}
+                color={i < allValues.ratingAverage ? 'blue.700' : 'gray.300'}
                 />
               ))}
               <Box as='span' ml='2' color='gray.700' fontSize='lg'>
               {2} reviews
               </Box>
         </Box>
+    
       </Box>
 
           <Stack spacing={8}  ></Stack>
 
-          </Box>
 
         </ChakraProvider>
     
