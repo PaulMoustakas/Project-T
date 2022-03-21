@@ -33,7 +33,6 @@ const childToParent = (childdata:any) => {
     </Box>
   </header>
 
-  <AppNav handleOpenModal={handleOpenModal} handleLogin/>
   <Box>
   <br />
     <Container maxWidth="container.xl" marginLeft = {320} marginTop={-38}>

@@ -132,7 +132,7 @@ export function ReviewDatabase()  {
 
           
 
-          setReviewArray((userReviewArray) => [userReviewArray..., {reviewID: reviewID, reviewScore:reviewScore, timeSubmitted: 
+          setReviewArray((userReviewArray) => [ ...userReviewArray, {reviewID: reviewID, reviewScore:reviewScore, timeSubmitted: 
             timeSubmitted,amountOfUpvotes: amountOfUpvotes, amountOfDownvotes: amountOfDownvotes, reviewText:  reviewText, 
             reviewerAddress:  reviewerAddress, recipientAddress:  recipientAddress}, ]);
 
