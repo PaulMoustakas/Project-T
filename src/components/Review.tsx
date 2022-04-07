@@ -1,8 +1,6 @@
-import { Box, Image, Button, Container, Text, Input, Icon, NumberInput, Textarea } from '@chakra-ui/react';
-import axios from "axios";
-import ConnectButton from "../components/ConnectButton";
-import { useEthers, useEtherBalance } from "@usedapp/core";
-import { useReview, useContractMint } from "../hooks";
+import { Box, Button, Container, Text, Input, NumberInput, Textarea } from '@chakra-ui/react';
+import { useEthers, } from "@usedapp/core";
+import { useReview, useReviewFunction } from "../hooks";
 import { StarIcon } from '@chakra-ui/icons';
 import React, { useState } from 'react';
 
@@ -18,10 +16,27 @@ import {
 
 
 
+
 export default function Review() {
-  const { activateBrowserWallet, account } = useEthers();
-  const response = useReview();
-  const { state, send: returnPerson } = useContractMint("returnPerson");
+ 
+  const [allValues, setAllValues] = useState ({
+    text: "",
+    addressToReview: "",
+  });
+
+  const changeHandler = (e: any) => {
+    setAllValues({...allValues, [e.target.name]: e.target.value})
+  }
+
+  const format = (val:any) => `` + val
+  
+
+  const [ratingValue, setRatingValue] = React.useState ('');
+
+
+  const reviewCall = useReview(Number(ratingValue), allValues.text,allValues.addressToReview)
+
+  const { state, send: reviewUser } = useReviewFunction();
 
 
 
@@ -32,8 +47,7 @@ export default function Review() {
 
 
   function handleReview() {
-    console.log(account)
-    returnPerson(account);
+    reviewUser(Number(ratingValue), allValues.text,allValues.addressToReview);
   }
 
 
@@ -44,9 +58,12 @@ export default function Review() {
       borderRadius="xl"
       alignItems="center"
       py="10"
+      marginTop="5"
       flexDirection="row"
       height="300px"
       maxWidth="75vh"
+      marginLeft={330}
+
     >
 
       <Box
@@ -93,6 +110,9 @@ export default function Review() {
           maxWidth="460px"
           placeholder="0x0000000000000000000000000000000000000000"
           color="blue.300"
+          marginBottom={2}
+          name = "addressToReview"
+          onChange={changeHandler}
         />
       </Box>
 
@@ -107,19 +127,34 @@ export default function Review() {
       w="100vh"
       >
 
-      {/** Escape Button Size */}
-        <Box height="38px" width="200px" bg="blue.900"> </Box>
-        <Box boxSize="8"> </Box>
+       
 
 
       {/** Rating Input */}
+
+      <Box
+      alignItems="center"
+      display="center"
+      fontSize="lg"
+      marginLeft={60}
+      >
+
+      Rating:
+        <Box fontWeight='semibold' fontSize="20px" ml="2" color={rating.rating < 3 ? 'red.500' : 'blue.700'}>
+        </Box>
+
+      </Box>
         <NumberInput
+        marginLeft={5}
         width="70px"
         defaultValue={1}
         min={1}
         max={5}
         keepWithinRange={true}
         clampValueOnBlur={true}
+        name = "score"
+        onChange={(valueString:any) => setRatingValue(valueString)}
+        value  = {format(ratingValue)}
         >
           <NumberInputField />
           <NumberInputStepper>
@@ -129,38 +164,7 @@ export default function Review() {
         </NumberInput>
 
       <Box boxSize="8"> </Box>
-
-
-      <Box
-      alignItems="center"
-      display="center"
-      fontSize="lg"
-      >
-
-      Trust Factor:
-        <Box fontWeight='semibold' fontSize="20px" ml="2" color={rating.rating < 3 ? 'red.500' : 'blue.700'}>
-            {rating.rating}
-        </Box>
-
-      </Box>
-
-      <Box boxSize="8" width="60px"> </Box>
-
-
-      {/** Current review avarage on Address */}
-        <Box display='flex' alignItems='center'>
-          {Array(5)
-            .fill('')
-            .map((_, i) => (
-              <StarIcon
-                key={i}
-                color={i < rating.rating ? 'blue.700' : 'gray.300'}
-                />
-              ))}
-              <Box as='span' ml='2' color='gray.700' fontSize='lg'>
-              {2} reviews
-              </Box>
-        </Box>
+      <Box boxSize="8" width="60px"> </Box>        
       </Box>
 
       {/** Comment */}
@@ -177,13 +181,16 @@ export default function Review() {
 
 
         <Textarea
+        marginTop={2}
         overflow="keepWithinRange"
         flexWrap="wrap"
         height="100px"
         width="460px"
-
+       
         placeholder="Comment"
         color="blue.300"
+        id = "text"
+        onChange = {changeHandler}
         />
       </Box>
 
@@ -205,13 +212,6 @@ export default function Review() {
       maxWidth="100vh"
       width="100vh"
       >
-
-      {/** Escape Button Size */}
-        <Box height="38px" width="200px" bg="blue.900"> </Box>
-        <Box boxSize="8"> </Box>
-
-
-      Hej
       </Box>
 
       </Box>

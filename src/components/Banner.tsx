@@ -1,11 +1,10 @@
 import { Box, Image, Container, Heading, Text } from '@chakra-ui/react';
-import brandLogo from "../assets/mau.png";
 import illustrator from "../assets/Illustrator.png";
-import ConnectButton from "../components/ConnectButton";
 import ConnectBankID from "../components/ConnectBankID";
 import NFTButton from "../components/NFTButton";
 import Review from "../components/Review";
-import React, { useState } from 'react';
+import AppNav from './AppNav';
+import { useState } from 'react';
 
 
 
@@ -13,8 +12,6 @@ type Props = {
   handleOpenModal: any;
   handleLogin: any;
 };
-
-
 
 function Banner ({ handleOpenModal }: Props) {
 const [hash, setHash] = useState('');
@@ -33,18 +30,15 @@ const childToParent = (childdata:any) => {
     ml={6}
     mr={6}
     >
-      <Image boxSize="90px" src={brandLogo} alt="School"/>
-      <Box>
-        <ConnectButton handleOpenModal={handleOpenModal}/>
-      </Box>
     </Box>
   </header>
 
-{/* main punch line */}
-
+  <AppNav handleOpenModal={handleOpenModal} handleLogin/>
   <Box>
-    <Container maxWidth="container.xl">
+  <br />
+    <Container maxWidth="container.xl" marginLeft = {320} marginTop={-38}>
       <Box d="flex" alignItems="center" py="20" flexDirection="row">
+        
         <Box>
           <Heading>
             <Box> Project T </Box>
@@ -53,8 +47,8 @@ const childToParent = (childdata:any) => {
 
           <Text>
 
-          <Text>    Project T is a part of a bachelor thesis in Computer Science, developed at Malmö University. <tr> </tr>
-                    The Project aims to build a Blockchain-based reputation system, resistance against sybil attacks.
+          <Text>    Project T is a part of a bachelor thesis in Computer Science, developed at Malmö University. 
+                    The Project aims to build a Blockchain-based reputation system, resistant against sybil attacks.
                     We issue digital identity certificates to entities authenticated by BankID, through NFTs.</Text>
           <br />
 
@@ -64,7 +58,7 @@ const childToParent = (childdata:any) => {
           <br />
 
           We let Swedish e-ID service Bank-ID serve as a trusted centralized entity, vouching for 1:1 relationship between entity and identity.
-          No personal information is stored on-chain. The NFTs are to serve as basis for the reputation system and our requirement for participation.
+          No personal information is stored on -chain. The NFTs are to serve as basis for the reputation system and our requirement for participation.
 
 
           </Text>
@@ -72,7 +66,8 @@ const childToParent = (childdata:any) => {
           </Box>
           <Box d="flex" alignItems="center"> </Box>
         </Box>
-        <Box w="100%">
+        <Box w="100%" marginLeft = {20}>
+        
           <Image w="100%" src={illustrator}  alt="illustrator" />
         </Box>
       </Box>
@@ -96,3 +91,5 @@ const childToParent = (childdata:any) => {
 }
 
 export default Banner;
+
+

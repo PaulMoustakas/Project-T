@@ -40,6 +40,8 @@ function handleConnectBankID () {
       flexDirection="row"
       height="75px"
       maxWidth="75vh"
+      marginLeft={330}
+      marginTop="-10"
     >
 
       <Box
@@ -167,7 +169,6 @@ function handleConnectBankID () {
     setColor('green.300')
     console.log(response.data);
     childToParent(response);
-
 
   })
   .catch(function (error:any) {

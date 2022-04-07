@@ -1,78 +1,5 @@
 [
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "reviewID",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_reviewedAdress",
-				"type": "address"
-			},
-			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "reviewID",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "reviewScore",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amountOfUpvotes",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amountOfDownvotes",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "reviewText",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "reviewerAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "recipientAddress",
-						"type": "address"
-					}
-				],
-				"internalType": "struct TokenizedBankID.Review",
-				"name": "review",
-				"type": "tuple"
-			}
-		],
-		"name": "addReview",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_addressToWhitelist",
-				"type": "address"
-			}
-		],
-		"name": "addUser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
@@ -128,6 +55,109 @@
 		"type": "event"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "reviewID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "reviewID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "reviewScore",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfUpvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfDownvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "reviewText",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "reviewerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipientAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct TokenizedBankID.Review",
+				"name": "review",
+				"type": "tuple"
+			}
+		],
+		"name": "addReview",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_addressToWhitelist",
+				"type": "address"
+			}
+		],
+		"name": "addUser",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -143,6 +173,115 @@
 		"name": "approve",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "lookup",
+				"type": "address"
+			},
+			{
+				"internalType": "int256",
+				"name": "DT",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "RSpre",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "r",
+				"type": "int256"
+			}
+		],
+		"name": "calculateRS",
+		"outputs": [
+			{
+				"internalType": "int256",
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "exampleFunction",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getApproved",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}
+		],
+		"name": "isApprovedForAll",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -170,11 +309,255 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "score",
+				"name": "tokenId",
 				"type": "uint256"
+			}
+		],
+		"name": "ownerOf",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "personMapping",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "hashedGovID",
+				"type": "string"
+			},
+			{
+				"internalType": "int256",
+				"name": "trustFactor",
+				"type": "int256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "latestReviewID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "int256",
+				"name": "TotalScore",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "amountOfReviews",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "lookup",
+				"type": "address"
+			}
+		],
+		"name": "retunAllReviews",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "reviewID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "reviewScore",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfUpvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfDownvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "reviewText",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "reviewerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipientAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct TokenizedBankID.Review[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_personAdress",
+				"type": "address"
+			}
+		],
+		"name": "returnPerson",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "hashedGovID",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "trustFactor",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "latestReviewID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "TotalScore",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfReviews",
+						"type": "int256"
+					}
+				],
+				"internalType": "struct TokenizedBankID.Person",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_personAdress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "reviewIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "returnReview",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "reviewID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "reviewScore",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfUpvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "amountOfDownvotes",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "reviewText",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "reviewerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipientAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct TokenizedBankID.Review",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "score",
+				"type": "int256"
 			},
 			{
 				"internalType": "string",
@@ -183,7 +566,7 @@
 			},
 			{
 				"internalType": "address",
-				"name": "recipientAddress",
+				"name": "recipient",
 				"type": "address"
 			}
 		],
@@ -262,310 +645,6 @@
 		"type": "function"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "Transfer",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "transferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "reviewIndex",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "reviewerAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "vote",
-				"type": "uint256"
-			}
-		],
-		"name": "voteOnReview",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			}
-		],
-		"name": "balanceOf",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "exampleFunction",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "getApproved",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "operator",
-				"type": "address"
-			}
-		],
-		"name": "isApprovedForAll",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "name",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "ownerOf",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "personMapping",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "personAdress",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "hashedGovID",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "trustFactor",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_personAdress",
-				"type": "address"
-			}
-		],
-		"name": "returnPerson",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "address",
-						"name": "personAdress",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "hashedGovID",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "trustFactor",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct TokenizedBankID.Person",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_personAdress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "reviewIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "returnReview",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "reviewID",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "reviewScore",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amountOfUpvotes",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amountOfDownvotes",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "reviewText",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "reviewerAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "recipientAddress",
-						"type": "address"
-					}
-				],
-				"internalType": "struct TokenizedBankID.Review",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "bytes4",
@@ -620,6 +699,29 @@
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "_whitelistedAddress",
 				"type": "address"
 			}
@@ -633,6 +735,29 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "reviewIndex",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "vote",
+				"type": "uint256"
+			}
+		],
+		"name": "voteOnReview",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
