@@ -11,7 +11,7 @@ export default function Mint( {hashValue}: any) {
 
 
   function handleMint() {
-    mintNFT(account, "HAALLO");
+    mintNFT();
   }
 
 

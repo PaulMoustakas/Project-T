@@ -1,7 +1,5 @@
 import { Box, Button, Container, Text, Input, NumberInput, Textarea } from '@chakra-ui/react';
-import { useEthers, } from "@usedapp/core";
 import { useReview, useReviewFunction } from "../hooks";
-import { StarIcon } from '@chakra-ui/icons';
 import React, { useState } from 'react';
 
 import {
@@ -10,9 +8,6 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from '@chakra-ui/react'
-
-
-
 
 
 
