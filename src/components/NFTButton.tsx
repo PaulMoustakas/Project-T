@@ -5,9 +5,8 @@ import { useMint, useContractMint } from "../hooks";
 
 
 export default function Mint( {hashValue}: any) {
-  const { activateBrowserWallet, account } = useEthers();
   const response = useMint();
-  const { state, send: mintNFT } = useContractMint("mintNFT");
+  const { state, send: mintNFT } = useContractMint();
 
 
   function handleMint() {

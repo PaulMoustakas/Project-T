@@ -15,7 +15,7 @@ export function ReviewDatabase()  {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [address, setAddress] = useState ('');
-
+   
     const [allValues, setAllValues] = useState ({
       personalNumber: "",
       address: "",
@@ -45,7 +45,7 @@ export function ReviewDatabase()  {
                     />
                   ))}
                   <Box as='span' ml='2' color='gray.700' fontSize='lg'>
-                  {}
+                  {} 
                   </Box>
               </Box>
               </Box>
@@ -53,7 +53,7 @@ export function ReviewDatabase()  {
     }
 
     const getUserCall = useFetchUser(address);
-
+  
     const {send: getUser } = useGetUser();
 
     const getReviewsCall = useFetchReviews (address);
@@ -63,7 +63,7 @@ export function ReviewDatabase()  {
     const [userReviewArray, setReviewArray] = useState<Array<{
         reviewID: any,
         reviewScore: any,
-        timeSubmitted: any,
+        timeSubmitted: any, 
         amountOfUpvotes: any,
         amountOfDownvotes: any,
         reviewText: any;
@@ -71,8 +71,8 @@ export function ReviewDatabase()  {
         recipientAddress: any
     } >>([])
 
-
-
+    
+    
 
    const handleChange = (e:any) => {
    setAddress(e.target.value)
@@ -84,16 +84,16 @@ export function ReviewDatabase()  {
 
     const handleSubmit = (e: any) => {
 
-      e.preventDefault();
+      e.preventDefault(); 
       console.log("SUBMIT ATTEMPTED " + address)
       getUser(address)
       setIsSubmitted(true)
-
+      
       let personArray = getUserCall;
-
+    
 
       if (getUserCall != undefined) {
-
+     
       allValues.address = "Adress: " + address;
       allValues.personalNumber = "HashedGovID: " + personArray?.at(0).at(0);
       allValues.trustScore = "TrustScore: " + personArray?.at(0).at(1);
@@ -104,21 +104,21 @@ export function ReviewDatabase()  {
 
       console.log(allValues.ratingAverage + " Rating average")
       setAllValues(allValues)
-
+       
       getReviews(address);
 
       var reviewArray = getReviewsCall;
 
-      if (reviewArray != undefined) {
+      if (reviewArray != undefined) { 
 
         console.log(reviewArray)
-
+      
       for (var i = 0; i < reviewArray?.length; i++) {
-
+      
       var arr = reviewArray[i];
 
       for (var j = 0; j < arr.length; j++) {
-
+      
           let reviewID = arr [j].at(0);
           var reviewScore =  arr [j].at(1);
           var timeSubmitted =  arr [j].at(2);
@@ -129,24 +129,22 @@ export function ReviewDatabase()  {
           var recipientAddress =  arr [j].at(7);
 
 
-
-
-
-          setReviewArray((userReviewArray) => [ ...userReviewArray, {reviewID: reviewID, reviewScore:reviewScore, timeSubmitted:
-            timeSubmitted,amountOfUpvotes: amountOfUpvotes, amountOfDownvotes: amountOfDownvotes, reviewText:  reviewText,
+          setReviewArray((userReviewArray) => [ ...userReviewArray, {reviewID: reviewID, reviewScore:reviewScore, timeSubmitted: 
+            timeSubmitted,amountOfUpvotes: amountOfUpvotes, amountOfDownvotes: amountOfDownvotes, reviewText:  reviewText, 
             reviewerAddress:  reviewerAddress, recipientAddress:  recipientAddress}, ]);
 
+          
 
-
-          console.log("ID= " + reviewID + "SCORE = " + reviewScore + "time = "
-          + timeSubmitted + "amount of downvotes = " + amountOfDownvotes + "amount of upvotes = "
+          console.log("ID= " + reviewID + "SCORE = " + reviewScore + "time = " 
+          + timeSubmitted + "amount of downvotes = " + amountOfDownvotes + "amount of upvotes = " 
           + amountOfUpvotes + " review text " + reviewText + " reviewerAddress = " + reviewerAddress + " recipientAddress " + recipientAddress)
 
-
-      }
+        
+      }   
     }
   }
 }
+
       else {
         setIsSubmitted(false)
         allValues.address = ""
@@ -154,34 +152,43 @@ export function ReviewDatabase()  {
         allValues.trustScore = ""
         allValues.ratingAverage = 0;
       }
+
+
       console.log(userReviewArray)
     }
 
 
     return (
+        
         <ChakraProvider theme={theme}>
           <AppNav handleOpenModal={onOpen} handleLogin/>
           <AccountModal isOpen={isOpen} onClose={onClose} />
           <Box marginTop={50} marginLeft = {100}>
-
+            
           <Heading>
             <Box> Review database query tool </Box>
           </Heading>
           <Box mt="6" >
-          <Text>
+          <Text>    
             Input an address to query the Goerli Ethereum blockchain for reviews associated with that address.<tr> </tr>
           </Text>
           </Box>
           <Box d="flex" alignItems="center"> </Box>
         </Box>
         <form onSubmit= {handleSubmit}>
-          <Input htmlSize={100}  variant='outline' placeholder='Address' width='auto'
+          <Input htmlSize={100}  variant='outline' placeholder='Address' width='auto' 
           marginTop={5} marginLeft={100}  onChange={handleChange} onSubmit={handleSubmit}  />
           </form>
 
           {isSubmitted && <RenderUserbox/>}
+        
+
           <Stack spacing={8}  ></Stack>
+
+
         </ChakraProvider>
+    
       );
+
 }
 export default ReviewDatabase;

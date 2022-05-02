@@ -81,6 +81,7 @@ export default function AccountModal({ isOpen, onClose }: Props) {
                 }}
                 onClick={handleDeactivateAccount}
               >
+                
                 Change
               </Button>
             </Flex>

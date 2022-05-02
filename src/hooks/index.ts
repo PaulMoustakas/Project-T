@@ -13,14 +13,20 @@ const mintContract = new Contract(nftContractAddress, nftContractInterface);
 
 {/** Mint */}
 export function useMint () {
-  const [newItemId]  =
-  useContractCall({
-    abi: nftContractInterface,
-    address: nftContractAddress,
+  const {value, error} =
+  
+  useCall({
+    contract: mintContract,
     method: "mintNFT",
     args: [],
-  }) ?? [];
-  return newItemId;
+  }) ?? {};
+
+  if (error) {
+    console.error(error.message)
+  }
+
+  
+  return value?.[0];
 }
 
 
@@ -91,8 +97,8 @@ export function useFetchUser (address : string | null | undefined) {
 
 
 {/** Generic */}
-export function useContractMint (methodName: string) {
-  const { state, send } = useContractFunction(mintContract, methodName, {});
+export function useContractMint () {
+  const { state, send } = useContractFunction(mintContract, "mintNFT", {});
   return { state, send };
 }
 
