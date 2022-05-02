@@ -18,7 +18,7 @@ import {
 
 
 export default function Review() {
- 
+
   const [allValues, setAllValues] = useState ({
     text: "",
     addressToReview: "",
@@ -29,7 +29,7 @@ export default function Review() {
   }
 
   const format = (val:any) => `` + val
-  
+
 
   const [ratingValue, setRatingValue] = React.useState ('');
 
@@ -127,7 +127,7 @@ export default function Review() {
       w="100vh"
       >
 
-       
+
 
 
       {/** Rating Input */}
@@ -147,9 +147,9 @@ export default function Review() {
         <NumberInput
         marginLeft={5}
         width="70px"
-        defaultValue={1}
-        min={1}
-        max={5}
+        defaultValue={0}
+        min={-1}
+        max={1}
         keepWithinRange={true}
         clampValueOnBlur={true}
         name = "score"
@@ -164,7 +164,7 @@ export default function Review() {
         </NumberInput>
 
       <Box boxSize="8"> </Box>
-      <Box boxSize="8" width="60px"> </Box>        
+      <Box boxSize="8" width="60px"> </Box>
       </Box>
 
       {/** Comment */}
@@ -186,7 +186,7 @@ export default function Review() {
         flexWrap="wrap"
         height="100px"
         width="460px"
-       
+
         placeholder="Comment"
         color="blue.300"
         id = "text"
