@@ -37,16 +37,16 @@ const childToParent = (childdata:any) => {
   <br />
     <Container maxWidth="container.xl" marginLeft = {320} marginTop={-38}>
       <Box d="flex" alignItems="center" py="20" flexDirection="row">
-        
+
         <Box>
           <Heading>
-            <Box> Project T </Box>
+            <Box> Tokenized Bank-ID</Box>
           </Heading>
           <Box mt="6" >
 
           <Text>
 
-          <Text>    Project T is a part of a bachelor thesis in Computer Science, developed at Malmö University. 
+          <Text>    Tokenized Bank-ID is a part of a bachelor thesis in Computer Science, developed at Malmö University.
                     The Project aims to build a Blockchain-based reputation system, resistant against sybil attacks.
                     We issue digital identity certificates to entities authenticated by BankID, through NFTs.</Text>
           <br />
@@ -66,8 +66,8 @@ const childToParent = (childdata:any) => {
           <Box d="flex" alignItems="center"> </Box>
         </Box>
         <Box w="100%" marginLeft = {20}>
-        
-          <Image w="100%" src={illustrator}  alt="illustrator" />
+
+
         </Box>
       </Box>
     </Container>
@@ -90,5 +90,3 @@ const childToParent = (childdata:any) => {
 }
 
 export default Banner;
-
-
