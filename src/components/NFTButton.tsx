@@ -35,20 +35,10 @@ export default function Mint( {hashValue}: any) {
           <Button
           colorScheme='yellow'
           onClick={handleMint}
-          variant="outline"
-  
-          border="1px solid transparent"
-          _hover={{
-            border: "1px",
-            borderStyle: "solid",
-            borderColor: "blue.400",
-            backgroundColor: "gray.700",
-          }}
-          _active={{
 
-            backgroundColor: "blue.800",
-            borderColor: "blue.700",
-          }}
+
+          border="1px solid transparent"
+
           borderRadius="xl"
           m="1px"
           px={3}
@@ -56,7 +46,6 @@ export default function Mint( {hashValue}: any) {
           width="200px"
         >
           <Text
-            color="white"
             fontSize="md"
             fontWeight="bold"
             mr="2"
