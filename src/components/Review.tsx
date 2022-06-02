@@ -48,7 +48,7 @@ export default function Review() {
 
   return  (
 
-    <Container
+    <Container hidden
       background="teal.500"
       borderRadius="xl"
       alignItems="center"

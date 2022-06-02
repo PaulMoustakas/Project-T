@@ -17,7 +17,7 @@ export default function Mint( {hashValue}: any) {
   return  (
 
     <Container
-      background="blue.700"
+
       borderRadius="xl"
       d="flex" alignItems="center" py="10" flexDirection="row"
       height="75px"
@@ -33,9 +33,10 @@ export default function Mint( {hashValue}: any) {
         w="100%"
       >
           <Button
+          colorScheme='yellow'
           onClick={handleMint}
           variant="outline"
-          bg="gray.700"
+  
           border="1px solid transparent"
           _hover={{
             border: "1px",
@@ -44,6 +45,7 @@ export default function Mint( {hashValue}: any) {
             backgroundColor: "gray.700",
           }}
           _active={{
+
             backgroundColor: "blue.800",
             borderColor: "blue.700",
           }}

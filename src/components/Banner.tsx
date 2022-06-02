@@ -38,27 +38,20 @@ const childToParent = (childdata:any) => {
     <Container maxWidth="container.xl" marginLeft = {320} marginTop={-38}>
       <Box d="flex" alignItems="center" py="20" flexDirection="row">
 
-        <Box>
-          <Heading>
-            <Box> Tokenized Bank-ID</Box>
+        <Box  >
+          <Heading fontWeight="bold" fontSize="53px">
+            <Box > Solidity Project</Box>
           </Heading>
           <Box mt="6" >
 
           <Text>
 
-          <Text>    Tokenized Bank-ID is a part of a bachelor thesis in Computer Science, developed at Malmö University.
-                    The Project aims to build a Blockchain-based reputation system, resistant against sybil attacks.
-                    We issue digital identity certificates to entities authenticated by BankID, through NFTs.</Text>
+          <Text fontSize="22px">    Independent studies in computer science Learning development of decentralized applications using Solidity
+          </Text>
           <br />
 
 
-          <Text>    A Sybil attack is a type of attack on a computer network service in which an attacker subverts the service's reputation system by creating
-                    a large number of pseudonymous identities and uses them to gain a disproportionately large influence. </Text>
-          <br />
-
-          We let Swedish e-ID service Bank-ID serve as a trusted centralized entity, vouching for 1:1 relationship between entity and identity.
-          No personal information is stored on -chain. The NFTs are to serve as basis for the reputation system and our requirement for participation.
-
+            Aims to understand and engage the blockchain, and be able to create dApp contenct to deplay on the network.
 
           </Text>
 

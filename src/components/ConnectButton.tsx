@@ -35,8 +35,9 @@ export default function ConnectButton({ handleOpenModal }: Props) {
       </Text>
         </Box>
           <Button
+
           onClick={handleOpenModal}
-          bg="gray.800"
+
           border="1px solid transparent"
           _hover={{
             border: "1px",
@@ -48,6 +49,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
           m="1px"
           px={3}
           height="38px"
+            colorScheme='yellow'
           >
             <Text color="white" fontSize="md" fontWeight="medium" mr="2">
             {account &&
@@ -62,9 +64,8 @@ export default function ConnectButton({ handleOpenModal }: Props) {
 
   ) : (
     <Button
+    colorScheme='yellow'
       onClick={handleConnectWallet}
-      bg="blue.800"
-      color="blue.300"
       fontSize="lg"
       fontWeight="medium"
       borderRadius="xl"

@@ -31,7 +31,7 @@ function handleConnectBankID () {
 
   return (
 
-    <Container
+    <Container hidden
       background="gray.700"
       borderRadius="xl"
       d="flex"

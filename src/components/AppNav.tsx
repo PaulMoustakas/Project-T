@@ -62,7 +62,7 @@ export default function WithSubnavigation ({ handleOpenModal }: Props){
         <Image boxSize="120px" src={brandLogo} alt="School"/>
 
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-        
+
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
@@ -73,7 +73,7 @@ export default function WithSubnavigation ({ handleOpenModal }: Props){
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={6}>        
+          spacing={6}>
           <ConnectButton handleOpenModal={handleOpenModal}></ConnectButton>
         </Stack>
       </Flex>
@@ -241,8 +241,10 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Home',
     href: '/',
   },
+  /*
   {
     label: 'Review Database',
     href: 'db',
   },
+  */
 ];
